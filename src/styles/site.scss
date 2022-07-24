@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply selection:bg-highlight;
+    @apply selection:text-gray-dark;
+  }
+}
+
+a, a:visited {
+  @apply text-primary;
+
+  &:hover {
+    @apply underline;
+  }
+}
+
+.nav-items {
+  a.nav-link {
+    @apply inline-block rounded-lg py-1 px-3 text-white hover:bg-primary hover:no-underline hover:text-gray-dark visited:text-white;
+  }
+}
+
+.content {
+  @apply flex flex-col mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 text-white;
+
+  h1 {
+    @apply text-4xl font-bold;
+    @apply mb-10;
+  }
+
+  h2 {
+    @apply text-3xl font-bold;
+    @apply my-5;
+  }
+}
+

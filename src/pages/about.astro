@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Default.astro';
+
+let title = 'About Matt';
+let description = 'Learn more about Matt Millican, full-stack developer and cloud enthusiast.';
+let subTitle = 'Full-stack software engineer, cloud enthusiast and continuous learner.'
+let permalink = '/about';
+let tags = ['About', 'Matt Millican', 'Software Engineer', 'Engineering Manager']
+---
+
+<Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
+  <!-- <h1>👋 Hi! I'm Matt</h1> -->
+
+  <ul class="list-none space-y-4">
+      <li>🔭 Currently working on ASP.NET Core, Vue.js, AWS</li>
+      <li>🏢 Lead Software Engineer at GMR Marketing</li>
+      <li>🌱 Currently learning *all the things*</li>
+      <li>🙋‍♂️ Ask me about: ASP.NET Core, Vue.JS, AWS, Model Trains</li>
+      <li>📫 How to reach me: <a href="https://twitter.com/millicanmatt" target="_blank">twitter.com/millicanmatt</a></li>
+      <li>😄 Pronouns: he/him/his</li>
+      <li>🚂 Fun fact: I'm a model railroad geek and have an <a href="https://www.facebook.com/MillValleyLines" target="_blank">N-scale layout</a>.</li>
+  </ul>
+</Layout>

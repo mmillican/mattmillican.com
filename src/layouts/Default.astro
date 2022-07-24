@@ -1,0 +1,65 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Jumbotron from '../components/Jumbotron.astro';
+import Footer from '../components/Footer.astro';
+// import BlogPostPreview from "../components/BlogPostPreview.astro";
+
+export interface Props {
+  title: string;
+  subTitle?: string;
+  description: string;
+  permalink: string;
+	tags?: string[];
+  canonicalUrl?: string;
+};
+
+const { title, subTitle, description, permalink } = Astro.props;
+
+
+// let title = "Example Blog";
+// let description = "The perfect starter for your perfect blog.";
+
+// Use Astro.glob to fetch all post with associated frontmatter
+// const unsortedPosts = await Astro.glob("./posts/*.md");
+// const posts = unsortedPosts.sort(function (a, b) {
+// 	return (
+// 		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+// 	);
+// });
+---
+
+<html lang="en" class="h-full scroll-smooth bg-gray-dark antialiased">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body class="flex h-full flex-col bg-gray-dark">
+		<Header />
+    <Jumbotron title={title} subTitle={subTitle} />
+
+    <main class="content">
+      <slot />
+    </main>
+		<!-- <div class="wrapper">
+			<main class="content">
+				<section class="intro">
+					<h1>{title}</h1>
+					<p>{description}</p>
+				</section>
+				<section aria-label="Blog post list">
+					{posts.map(({ url, frontmatter }) => (
+						<BlogPostPreview
+							title={frontmatter.title}
+							description={frontmatter.description}
+							publishDate={frontmatter.publishDate}
+							url={url}
+						/>
+					))}
+				</section>
+			</main>
+		</div> -->
+
+    <Footer />
+	</body>
+</html>
