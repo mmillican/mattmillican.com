@@ -1,0 +1,33 @@
+---
+import { getPostSlugFromFilename } from '../../utils';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../../posts/**/*.md');
+	// const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date));
+	return allPosts.map((post) => {
+		const slug = getPostSlugFromFilename(post.file);
+
+		return {
+			params: {
+				slug
+			},
+			props: {
+				post
+			}
+		}
+	})
+}
+
+import Layout from '../../layouts/Default.astro';
+
+const { post } = Astro.props;
+const { slug } = Astro.params;
+
+const { title, subTitle, publishDate, tags } = post.frontmatter;
+
+---
+
+<Layout {title} description={subTitle} subTitle={`Posted ${publishDate}`}>
+
+  <post.Content />
+</Layout>

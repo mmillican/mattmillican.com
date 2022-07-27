@@ -1,21 +1,28 @@
 ---
-export interface Props {
-	title: string;
-	description: string;
-	publishDate: string;
-	url: string;
-}
+import { getPostSlugFromFilename } from '../utils';
 
-const { title, description, publishDate, url } = Astro.props as Props;
+const { post } = Astro.props;
+const slug = post.frontmatter.slug || getPostSlugFromFilename(post.file);
+
+const { title, subTitle, publishDate } = post.frontmatter;
+
+// export interface Props {
+// 	title: string;
+// 	description: string;
+// 	publishDate: string;
+// 	url: string;
+// }
+
+// const { title, description, publishDate, url } = Astro.props as Props;
 ---
 
 <article class="post-preview">
 	<header>
 		<time>{publishDate}</time>
-		<a href={url}><h1 class="title">{title}</h1></a>
+		<a href={`/posts/${slug}`}><h1 class="title">{title}</h1></a>
 	</header>
-	<p>{description}</p>
-	<a href={url}>Read more</a>
+	<p>{subTitle}</p>
+	<a href={`/posts/${slug}`}>Read more</a>
 </article>
 
 <style>
