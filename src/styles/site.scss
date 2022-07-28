@@ -8,12 +8,8 @@
     @apply selection:text-gray-dark;
   }
 
-  a, a:visited {
+  a, a:link, a:visited {
     @apply text-primary;
-
-    &:visited {
-      @apply text-primary;
-    }
 
     &:hover {
       @apply underline;
