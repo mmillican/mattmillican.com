@@ -11,12 +11,15 @@
   a, a:visited {
     @apply text-primary;
 
+    &:visited {
+      @apply text-primary;
+    }
+
     &:hover {
       @apply underline;
     }
   }
 }
-
 .nav-items {
   a.nav-link {
     @apply inline-block rounded-lg py-1 px-3 text-white hover:bg-primary hover:no-underline hover:text-gray-dark visited:text-white font-medium;
@@ -71,3 +74,18 @@
   }
 }
 
+.post-list {
+  .post-item {
+    @apply mb-10;
+
+    h2 {
+      @apply mb-2;
+    }
+
+    .post-subtitle {
+      @apply mb-2;
+      @apply text-gray-400;
+      @apply italic;
+    }
+  }
+}

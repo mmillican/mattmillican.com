@@ -23,11 +23,11 @@ import Layout from '../../layouts/Default.astro';
 const { post } = Astro.props;
 const { slug } = Astro.params;
 
-const { title, subTitle, publishDate, tags } = post.frontmatter;
+const { title, subtitle, date, tags } = post.frontmatter;
 
 ---
 
-<Layout {title} description={subTitle} subTitle={`Posted ${publishDate}`}>
+<Layout {title} description={subtitle} subTitle={`Posted ${date}`}>
 
   <post.Content />
 </Layout>

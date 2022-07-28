@@ -1,12 +1,7 @@
 ---
-# layout: post
 title: 'Add SignalR to a Vue.js app'
-description: "Add real-time communication to your Vue.js app with ASP.NET Core SignalR"
-publishDate: '2020-07-28'
-# slug: 'signalr-with-vue'
-# author: 'Matt Millican'
-# header-img: 'img/blog/real-time-dashboard.jpg'
-# permalink: blog/:slug
+subtitle: "Add real-time communication to your Vue.js app with ASP.NET Core SignalR"
+date: '2020-07-28'
 ---
 
 Adding real-time communication to your web applications such online games,

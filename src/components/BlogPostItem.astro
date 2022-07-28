@@ -1,0 +1,32 @@
+---
+import { getPostSlugFromFilename } from '../utils';
+
+const { post } = Astro.props;
+const slug = post.frontmatter.slug || getPostSlugFromFilename(post.file);
+
+const { title, subtitle, date } = post.frontmatter;
+// export interface Props {
+// 	title: string;
+// 	description: string;
+// 	date: string;
+// 	url: string;
+// }
+
+// const { title, description, date, url } = Astro.props as Props;
+---
+
+<article class="post-item">
+	<header class="post-title">
+    <a href={`/posts/${slug}`}>
+      <h2 class="post-title mb-0">{title}</h2>
+    </a>
+	</header>
+
+	<h3 class="post-subtitle">
+    {subtitle}
+  </h3>
+
+  <p class="post-date">
+    Posted <time>{date}</time>
+  </p>
+</article>

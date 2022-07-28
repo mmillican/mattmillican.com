@@ -1,10 +1,10 @@
 ---
 
 import Layout from '../../layouts/Default.astro';
-import BlogPostPreview from '../../components/BlogPostPreview.astro';
+import BlogPostItem from '../../components/BlogPostItem.astro';
 
 const title = 'Posts';
-const subTitle = 'Matt\'s tips, tricks and musings';
+const subTitle = 'Matt\'s tips, tricks and rants';
 const description = 'Blog posts written by Matt Millican';
 const permalink = '/posts';
 
@@ -12,16 +12,17 @@ const permalink = '/posts';
 const unsortedPosts = await Astro.glob("../../posts/**/*.md");
 const posts = unsortedPosts.sort(function (a, b) {
 	return (
-		new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+		new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
 	);
 });
 ---
 
 <Layout title={title} description={description} subTitle={subTitle} permalink={permalink}>
-  {posts.map(post => (
-    <BlogPostPreview
-      post={post}
-    />
-  ))}
+  <div class="post-list">
+    {posts.map(post => (
+      <BlogPostItem
+        post={post}
+      />
+    ))}
+  </div>
 </Layout>
-

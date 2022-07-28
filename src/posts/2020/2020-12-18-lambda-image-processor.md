@@ -1,12 +1,7 @@
 ---
-# layout: '../layouts/BlogPost.astro'
 title: 'Process Images with AWS Lambda and .NET Core'
-description: "Process and resize images in AWS S3 using a Lambda Function and ASP.NET Core"
-publishDate: '2020-12-18'
-# slug: 'lambda-image-processor'
-# author: 'Matt Millican'
-# header-img: 'img/blog/macbook-with-smartphone.jpg'
-# permalink: blog/:slug
+subtitle: "Process and resize images in AWS S3 using a Lambda Function and ASP.NET Core"
+date: '2020-12-18'
 ---
 
 Generating less-than-full-sized images of user-uploaded content to an

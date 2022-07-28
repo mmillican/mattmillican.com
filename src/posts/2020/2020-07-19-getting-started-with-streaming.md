@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with Live Coding'
 subtitle: "My adventures getting setup for live-stream coding"
-publishDate: '2020-07-19'
+date: '2020-07-19'
 ---
 
 For the past couple months, I've been going back and forth on whether or not I

@@ -4,9 +4,13 @@ import "../styles/site.scss";
 export interface Props {
 	title: string;
 	description: string;
+  subTitle?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, subTitle } = Astro.props;
+
+const pageTitle = `${title} - Matt Millican`;
+const pageDescription = description || subTitle || 'Matt Millican, software engineer, cloud enthusiast, geek'
 ---
 
 <!-- Global Metadata -->
@@ -15,23 +19,23 @@ const { title, description } = Astro.props;
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle} />
+<meta name="description" content={pageDescription} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.canonicalURL} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content="https://astro.build/social.png" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDescription} />
+<!-- <meta property="og:image" content="https://astro.build/social.png" /> -->
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.canonicalURL} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://astro.build/social.png" />
+<meta property="twitter:title" content={pageTitle} />
+<meta property="twitter:description" content={pageDescription} />
+<!-- <meta property="twitter:image" content="https://astro.build/social.png" /> -->
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
