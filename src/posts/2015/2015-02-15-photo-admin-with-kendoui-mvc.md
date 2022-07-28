@@ -104,7 +104,7 @@ You might ask why I didn't just call the code that's in the refreshPhotos() meth
 
 Now for the saving of photos on the Controller side:
 
-``` c#
+```csharp
 public ActionResult SavePhotos(Guid albumId, IEnumerable<HttpPostedFileBase> photos)
 {
     var album = _photoService.GetAlbum(albumId);
@@ -149,6 +149,6 @@ public ActionResult SavePhotos(Guid albumId, IEnumerable<HttpPostedFileBase> pho
 }
 ```
 
-What's this method doing?  First off, I'm getting the album that we are adding the photos to, ensuring that the folder for the photos exists on the server and then retrieving it's path.  For me, the path might look like "/media/photos/albums/{album-slug}/".  After that, I'm setting some [ImageResizer](http://imageresizing.net/) settings from settings in my web.config so that I can resize the photos on upload.  I'm then looping through all of the photos to get their file name (or generate one if I can't get it for some reason), and then processing and saving it with the image resizer.  Once the photo has been saved, I create a new record in the album's photo collection.  Once all the photos have been uploaded, I'm saving the album (which saves all it's photo records) and returning an empty content result as Kendo expects.  Once that happens, the success event on the file upload should trigger the photo list to be refreshed.
+What's this method doing?  First off, I'm getting the album that we are adding the photos to, ensuring that the folder for the photos exists on the server and then retrieving it's path.  For me, the path might look like "/media/photos/albums/album-slug/".  After that, I'm setting some [ImageResizer](http://imageresizing.net/) settings from settings in my web.config so that I can resize the photos on upload.  I'm then looping through all of the photos to get their file name (or generate one if I can't get it for some reason), and then processing and saving it with the image resizer.  Once the photo has been saved, I create a new record in the album's photo collection.  Once all the photos have been uploaded, I'm saving the album (which saves all it's photo records) and returning an empty content result as Kendo expects.  Once that happens, the success event on the file upload should trigger the photo list to be refreshed.
 
 So, there you have it.  A simple photo uploading tool using [Kendo's ASP.NET MVC](http://www.telerik.com/aspnet-mvc) wrappers.  Try it out today and feel free to leave comments with questions.
