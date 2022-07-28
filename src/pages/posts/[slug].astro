@@ -1,5 +1,5 @@
 ---
-import { getPostSlugFromFilename } from '../../utils';
+import { getPostSlugFromFilename, formatDate } from '../../utils';
 
 export async function getStaticPaths() {
   const allPosts = await Astro.glob('../../posts/**/*.md');
@@ -27,7 +27,7 @@ const { title, subtitle, date, tags } = post.frontmatter;
 
 ---
 
-<Layout {title} description={subtitle} subTitle={`Posted ${date}`}>
+<Layout {title} description={subtitle} subTitle={`Posted ${formatDate(date)}`}>
 
   <post.Content />
 </Layout>

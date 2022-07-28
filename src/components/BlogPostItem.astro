@@ -1,5 +1,5 @@
 ---
-import { getPostSlugFromFilename } from '../utils';
+import { getPostSlugFromFilename, formatDate } from '../utils';
 
 const { post } = Astro.props;
 const slug = post.frontmatter.slug || getPostSlugFromFilename(post.file);
@@ -27,6 +27,6 @@ const { title, subtitle, date } = post.frontmatter;
   </h3>
 
   <p class="post-date">
-    Posted <time>{date}</time>
+    Posted <time>{formatDate(date)}</time>
   </p>
 </article>
