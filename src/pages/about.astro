@@ -9,15 +9,16 @@ let tags = ['About', 'Matt Millican', 'Software Engineer', 'Engineering Manager'
 ---
 
 <Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
-  <!-- <h1>👋 Hi! I'm Matt</h1> -->
+  <div class="flex space-x-10">
+    <div class="w-full sm:w-2/3 text-lg leading-loose">
+      Matt Millican is a full-stack software engineer, specializing in ASP.NET 6, Vue.js and AWS. Currently, Matt is
+      a Software Engineer Manager at GMR Marketing. He has been developing for the web since he was in high school and
+      never stops learning. Matt enjoys helping others figure out problems and is always looking for a new challenge.
+      Matt lives in the Greater Milwaukee area with his wife and 2 young daughters.
+    </div>
 
-  <ul class="list-none space-y-4">
-      <li>🔭 Currently working on ASP.NET Core, Vue.js, AWS</li>
-      <li>🏢 Lead Software Engineer at GMR Marketing</li>
-      <li>🌱 Currently learning *all the things*</li>
-      <li>🙋‍♂️ Ask me about: ASP.NET Core, Vue.JS, AWS, Model Trains</li>
-      <li>📫 How to reach me: <a href="https://twitter.com/millicanmatt" target="_blank">twitter.com/millicanmatt</a></li>
-      <li>😄 Pronouns: he/him/his</li>
-      <li>🚂 Fun fact: I'm a model railroad geek and have an <a href="https://www.facebook.com/MillValleyLines" target="_blank">N-scale layout</a>.</li>
-  </ul>
+    <div class="w-full sm:w-1/3 hidden sm:inline-block">
+      <img src="assets/img/headshot.jpg" class="w-32 sm:w-64 border-rd" />
+    </div>
+  </div>
 </Layout>

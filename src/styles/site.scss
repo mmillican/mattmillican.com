@@ -16,6 +16,7 @@
     }
   }
 }
+
 .nav-items {
   a.nav-link {
     @apply inline-block rounded-lg py-1 px-3 text-white hover:bg-primary hover:no-underline hover:text-gray-dark visited:text-white font-medium;
@@ -41,21 +42,17 @@
     @apply mb-5;
   }
 
+  h4 {
+    @apply text-xl font-medium;
+    @apply mb-2;
+  }
+
   p {
     @apply my-3;
 
     code {
       @apply px-2 py-1 mx-1;
       @apply bg-gray-800;
-    }
-  }
-
-  ul {
-    @apply ml-8;
-    @apply list-disc;
-
-    li {
-      @apply mb-2;
     }
   }
 
@@ -82,6 +79,21 @@
       @apply mb-2;
       @apply text-gray-400;
       @apply italic;
+    }
+
+    .post-date {
+      @apply mt-0;
+    }
+  }
+}
+
+.post-content {
+  ul {
+    @apply ml-8;
+    @apply list-disc;
+
+    li {
+      @apply mb-2;
     }
   }
 }
