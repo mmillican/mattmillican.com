@@ -27,7 +27,7 @@ const { title, subtitle, date, tags } = post.frontmatter;
 
 ---
 
-<Layout {title} description={subtitle} subTitle={`Posted ${formatDate(date)}`}>
+<Layout {title} description={subtitle} subTitle={formatDate(date)}>
 
   <div class="post-content">
     <post.Content />
