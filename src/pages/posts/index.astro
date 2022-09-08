@@ -2,19 +2,14 @@
 
 import Layout from '../../layouts/Default.astro';
 import BlogPostItem from '../../components/BlogPostItem.astro';
+import { getBlogPosts } from '../../utils/posts';
 
 const title = 'Blog Posts';
 const subTitle = 'Matt\'s tips, tricks and rants';
 const description = 'Blog posts written by Matt Millican';
 const permalink = '/posts';
 
-// Use Astro.glob to fetch all post with associated frontmatter
-const unsortedPosts = await Astro.glob("../../posts/**/*.md");
-const posts = unsortedPosts.sort(function (a, b) {
-	return (
-		new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
-	);
-});
+const posts = await getBlogPosts();
 ---
 
 <Layout title={title} description={description} subTitle={subTitle} permalink={permalink}>

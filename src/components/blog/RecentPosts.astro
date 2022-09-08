@@ -1,0 +1,25 @@
+---
+import { getRecentPosts } from '../../utils/posts';
+import BlogPostItem from '../BlogPostItem.astro';
+
+export interface Props {
+  max: number;
+}
+
+const { max } = Astro.props;
+
+const posts = await getRecentPosts(max);
+// console.log()
+---
+
+<div class="recent-post-list">
+  {posts.map(post => (
+    <div class="post-item">
+      <a href={`/posts/${post.slug}`}>
+        <h3 class="post-title text-primary">{post.title}</h3>
+      </a>
+
+      <p class="post-date">{post.formattedDate}</p>
+    </div>
+  ))}
+</div>
