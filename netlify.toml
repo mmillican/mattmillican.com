@@ -1,0 +1,24 @@
+[[redirects]]
+from = "/index"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/blog"
+to = "/posts/"
+status = 301
+
+[[redirects]]
+from = "/blog/*"
+to = "/posts/:splat"
+status = 301
+
+[[redirects]]
+from = "/about"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/about.html"
+to = "/"
+status = 301

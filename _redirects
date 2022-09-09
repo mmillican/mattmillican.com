@@ -1,5 +1,0 @@
-/index      /               301
-/blog       /posts          301
-/blog/*     /posts/:splat   301
-/about      /               301
-/about.html /               301
