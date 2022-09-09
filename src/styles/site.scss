@@ -44,3 +44,16 @@
     }
   }
 }
+
+footer {
+  .social {
+    a, a:link, a:visited {
+      @apply text-white
+    }
+
+    a:hover {
+      @apply hover:no-underline;
+      @apply text-secondary;
+    }
+  }
+}
