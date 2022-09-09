@@ -7,6 +7,11 @@ export default function Header() {
     setShowMobileNav(!showMobileNav);
   }
 
+  const navItems = [
+    { text: 'Blog', href: '/posts' },
+    { text: 'Uses', href: '/uses' },
+  ]
+
   return (
     <header class="py-4 border-b-4 border-secondary">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -23,10 +28,9 @@ export default function Header() {
             </button>
           </div>
           <div class="hidden md:flex md:gap-x-6 nav-items">
-            {/* <a href="/about" class="nav-link">About</a> */}
-            <a href="/posts" class="nav-link">Blog</a>
-            {/* <a href="/projects" class="nav-link">Projects</a> */}
-            <a href="/uses" class="nav-link">Uses</a>
+            {navItems.map((item) => (
+              <a href={item.href} class="nav-link">{item.text}</a>
+            ))}
           </div>
         </nav>
       </div>
@@ -52,18 +56,11 @@ export default function Header() {
                 </div>
               </div>
               <div class="mt-6 px-4 grid gap-y-10">
-                {/* <a href="/about" class="-m-3 text-white font-medium visited:text-white">
-                  About
-                </a> */}
-                <a href="/posts" class="-m-3 text-white font-medium visited:text-white">
-                  Blog
-                </a>
-                {/* <a href="/projects" class="-m-3 text-white font-medium visited:text-white">
-                  Projects
-                </a> */}
-                <a href="/uses" class="-m-3 text-white font-medium visited:text-white">
-                  Uses
-                </a>
+                {navItems.map((item) => (
+                  <a href={item.href} class="-m-3 text-white font-medium visited:text-white">
+                    {item.text}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
