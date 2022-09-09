@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Default.astro';
+import FirstPersonBio from '.././components/bio/FirstPerson.astro';
 
 let title = 'About Matt';
 let description = 'Learn more about Matt Millican, full-stack developer and cloud enthusiast.';
@@ -11,10 +12,7 @@ let tags = ['About', 'Matt Millican', 'Software Engineer', 'Engineering Manager'
 <Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
   <div class="flex space-x-10">
     <div class="w-full sm:w-2/3 text-lg leading-loose">
-      Matt Millican is a full-stack software engineer, specializing in ASP.NET 6, Vue.js and AWS. Currently, Matt is
-      a Software Engineer Manager at GMR Marketing. He has been developing for the web since he was in high school and
-      never stops learning. Matt enjoys helping others figure out problems and is always looking for a new challenge.
-      Matt lives in the Greater Milwaukee area with his wife and 2 young daughters.
+      <FirstPersonBio />
     </div>
 
     <div class="w-full sm:w-1/3 hidden sm:inline-block not-prose">

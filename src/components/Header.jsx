@@ -23,7 +23,7 @@ export default function Header() {
             </button>
           </div>
           <div class="hidden md:flex md:gap-x-6 nav-items">
-            <a href="/about" class="nav-link">About</a>
+            {/* <a href="/about" class="nav-link">About</a> */}
             <a href="/posts" class="nav-link">Blog</a>
             {/* <a href="/projects" class="nav-link">Projects</a> */}
             <a href="/uses" class="nav-link">Uses</a>
@@ -52,9 +52,9 @@ export default function Header() {
                 </div>
               </div>
               <div class="mt-6 px-4 grid gap-y-10">
-                <a href="/about" class="-m-3 text-white font-medium visited:text-white">
+                {/* <a href="/about" class="-m-3 text-white font-medium visited:text-white">
                   About
-                </a>
+                </a> */}
                 <a href="/posts" class="-m-3 text-white font-medium visited:text-white">
                   Blog
                 </a>

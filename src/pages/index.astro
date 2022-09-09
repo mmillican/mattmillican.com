@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Default.astro';
 import RecentPosts from '../components/blog/RecentPosts.astro';
+import FirstPersonBio from '../components/bio/FirstPerson.astro';
 
 let title = '';
 let description = 'Matt Millican; Software Engineer, Cloud Enthusiast, Continuous Learner';
@@ -9,9 +10,13 @@ let permalink = '/';
 ---
 
 <Layout title={title} subTitle="All things dev, cloud and learning." description={description} permalink={permalink}>
-  <div class="grid grid-cols-12">
-    <div class="col-span-12 sm:col-span-8">some text</div>
-    <div class="col-span-12 sm:col-span-4">
+  <div class="grid grid-cols-12 sm:gap-x-16">
+    <div class="col-span-12 sm:col-span-8">
+      <div class="mt-0text-lg leading-loose">
+        <FirstPersonBio />
+      </div>
+    </div>
+    <div class="mt-4 sm:mt-0 col-span-12 sm:col-span-4">
       <h2 class="mt-0">Recent Posts</h2>
 
       <RecentPosts max={3} />
