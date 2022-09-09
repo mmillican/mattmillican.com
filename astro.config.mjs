@@ -13,5 +13,5 @@ export default defineConfig({
 		}),
 	],
 	site: 'https://mattmillican.com',
-	trailingSlash: 'never',
+	trailingSlash: 'ignore',
 });
