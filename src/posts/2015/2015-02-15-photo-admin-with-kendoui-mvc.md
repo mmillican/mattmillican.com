@@ -2,6 +2,7 @@
 title: 'Photo Gallery Admin with Kendo UI for MVC'
 # subtitle: 'Build a Slackbot using Node JS and Botkit'
 date: '2015-02-18'
+slug: photo-gallery-admin-with-kendo-ui-for-mvc
 ---
 
 I am currently working on building a simple CMS for myself using ASP.NET MVC and [Kendo MVC wrappers](http://www.telerik.com/aspnet-mvc).  Within the CMS, I wanted a simple photo gallery, with an administrative UI for managing albums and photos.  Follow along as I share how I built the admin.

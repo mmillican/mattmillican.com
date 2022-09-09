@@ -1,6 +1,7 @@
 ---
 title: '.NET MVC + Angular JS: Configuration variables'
 date: '2015-01-08'
+slug: mvc--angular-js-configuration-variables
 ---
 
 When building client side, single page applications (SPAs), you'll likely need some configuration variables from the server side at some point.  Things such as the app root URL (for linking to other pages within the app), the API URL (interacting with your HTTP API), current user ID, etc.  I found what what seems to be a good way to do this that I have been using in a few of my Angular apps that combines partial/child actions in MVC along with a factory/service in Angular.

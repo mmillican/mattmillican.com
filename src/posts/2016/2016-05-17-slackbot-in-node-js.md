@@ -2,6 +2,7 @@
 title: 'Build a Slackbot in Node JS'
 subtitle: 'Build a Slackbot using Node JS and Botkit'
 date: '2016-05-17'
+slug: build-a-slackbot-in-node-js
 ---
 
 Our development team recently made the switch from Hipchat to [Slack](http://slack.com) for team communication.  Previously, we had a few integrations with other tools we use, such as BitBucket and Bamboo.  There were also a few new ones that we wanted, like the one I'm going to walk you through today.

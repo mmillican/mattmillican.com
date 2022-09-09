@@ -1,6 +1,7 @@
 ---
 title: 'Entity Framework with Structuremap'
 date: '2014-08-18'
+slug: entity-framework-with-structuremap
 ---
 
 I recently ran into a problem while using Entity Framework with Structuremap.  The issue was mainly present while making concurrent calls to Web API endpoints, because they were all asynchronous.  After a lot of investigation and looking around for various examples (mainly using other IOC containers), I came up with a solution.

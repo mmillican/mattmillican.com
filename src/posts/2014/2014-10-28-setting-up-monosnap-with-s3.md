@@ -2,6 +2,7 @@
 title: 'Setting up Monosnap with S3'
 subtitle: 'An easy way to automatically upload screenshots with a shareable link'
 date: '2014-10-28'
+slug: setting-up-monosnap-with-s3
 ---
 
 Originally, I had Monosnap saving to a folder on my Dropbox account.  This was fine and dandy, but still had some annoyances, like the link taking a bit to copy.  Monosnap has a built-in S3 integration which is pretty easy to set up.  Let's walk through that now.
