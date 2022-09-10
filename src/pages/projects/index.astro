@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Default.astro';
+
+let title = 'Projects';
+let description = "Some of the various projects Matt is working on or has built.";
+let subTitle ="Can't stop. Won't Stop. Always a project in the works.";
+let permalink = '/projects';
+let tags = ['About', 'Matt Millican', 'Software Engineer', 'Tinkerer', 'Projects', 'Web Apps']
+
+interface ProjectMeta {
+  displayOrder: number;
+  name: string;
+  dates?: string;
+  githubUrl?: string;
+  stack: Array<string>;
+}
+
+const projects = await Astro.glob<ProjectMeta>('../../data/projects/*.md');
+const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.frontmatter.displayOrder)
+---
+
+<Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
+
+<div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {
+    sortedProjects.map(project => (
+      <div class="project hover:bg-zinc-700 rounded-lg sm:p-4">
+        <h3 class="mt-0">{project.frontmatter.name}</h3>
+        <p class="dates">
+          {project.frontmatter.dates}
+        </p>
+
+        <div class="description">
+          <Fragment set:html={project.compiledContent()} />
+        </div>
+
+        <ul class="stack">
+          {
+            project.frontmatter.stack.map(stackItem => (
+              <li>{stackItem}</li>
+            ))
+          }
+        </ul>
+      </div>
+    ))
+  }
+
+  <!-- <div class="project mt-4">
+    <h3>MemberPro</h3>
+    <p class="description"></p>
+
+    <h4>Tech Stack</h4>
+    <ul class="tech-stack">
+      <li>ASP.NET 6 Web API</li>
+      <li>Vue.js</li>
+      <li>Postgres</li>
+      <li>Docker / ECS Fargate</li>
+      <li>AWS</li>
+    </ul>
+  </div>
+  <div class="project mt-4">
+    <h3>RailWiki</h3>
+    <p class="description"></p>
+
+    <h4>Tech Stack</h4>
+    <ul class="tech-stack">
+      <li>ASP.NET MVC</li>
+      <li>Vue.js</li>
+      <li>Microsoft SQL Server</li>
+      <li>AWS</li>
+    </ul>
+  </div> -->
+</div>
+
+</Layout>

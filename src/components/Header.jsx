@@ -9,6 +9,7 @@ export default function Header() {
 
   const navItems = [
     { text: 'Blog', href: '/posts' },
+    { text: 'Projects', href: '/projects' },
     { text: 'Uses', href: '/uses' },
   ]
 
