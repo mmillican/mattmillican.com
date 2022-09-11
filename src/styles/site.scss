@@ -40,9 +40,13 @@
     }
 
     .post-subtitle {
-      // @apply mb-2;
+      @apply my-2;
       // @apply text-gray-400;
       @apply italic;
+    }
+
+    .post-date {
+      @apply my-2;
     }
   }
 }
