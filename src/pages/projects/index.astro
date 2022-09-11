@@ -25,10 +25,12 @@ const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.fr
   {
     sortedProjects.map(project => (
       <div class="project md:p-4 md:transition-colors md:duration-300 md:hover:bg-zinc-800 rounded-lg">
-        <h3 class="mt-0">{project.frontmatter.name}</h3>
-        <p class="dates">
-          {project.frontmatter.dates}
-        </p>
+        <div class="flex items-centered justify-between">
+          <h3 class="mt-0">{project.frontmatter.name}</h3>
+          <p class="dates">
+            {project.frontmatter.dates}
+          </p>
+        </div>
 
         <div class="description">
           <Fragment set:html={project.compiledContent()} />
@@ -44,32 +46,6 @@ const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.fr
       </div>
     ))
   }
-
-  <!-- <div class="project mt-4">
-    <h3>MemberPro</h3>
-    <p class="description"></p>
-
-    <h4>Tech Stack</h4>
-    <ul class="tech-stack">
-      <li>ASP.NET 6 Web API</li>
-      <li>Vue.js</li>
-      <li>Postgres</li>
-      <li>Docker / ECS Fargate</li>
-      <li>AWS</li>
-    </ul>
-  </div>
-  <div class="project mt-4">
-    <h3>RailWiki</h3>
-    <p class="description"></p>
-
-    <h4>Tech Stack</h4>
-    <ul class="tech-stack">
-      <li>ASP.NET MVC</li>
-      <li>Vue.js</li>
-      <li>Microsoft SQL Server</li>
-      <li>AWS</li>
-    </ul>
-  </div> -->
 </div>
 
 </Layout>

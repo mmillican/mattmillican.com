@@ -44,17 +44,14 @@
       // @apply text-gray-400;
       @apply italic;
     }
-
-    .post-date {
-      // @apply mt-0;
-    }
   }
 }
 
 footer {
   .social {
     a, a:link, a:visited {
-      @apply text-white
+      @apply text-white;
+      @apply transition-colors ease-in-out duration-100;
     }
 
     a:hover {

@@ -39,7 +39,7 @@ export default function Header() {
       { showMobileNav &&
         (
         <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top right md:hidden">
-          <div class="rounded-lg shadow-lg bg-gray-dark border-2 border-gray-400">
+          <div class="rounded-lg shadow-lg bg-gray-dark border-2 border-zinc-500">
             <div class="pt-5 pb-6 px-5">
               <div class="flex items-center justify-between">
                 <div>
