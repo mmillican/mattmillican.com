@@ -1,1 +1,5 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Twitter
+    url: https://twitter.com/millicanmatt
+    about: Send me a Tweet with a question or suggestion.
