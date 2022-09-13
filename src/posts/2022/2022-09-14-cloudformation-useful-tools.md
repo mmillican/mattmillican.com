@@ -4,16 +4,23 @@ subtitle: The tools and tricks I use to be more productive working with AWS Clou
 date: '2022-09-14'
 ---
 
-CloudFormation ("CFN") is AWS' _Infrastructure as Code_ ("IAS") solution that allows you to define your resources using templates
-instead of manually provisioning the resources via the Console. Using IAC has many benefits over manual provisioning, including:
+[CloudFormation](https://aws.amazon.com/cloudformation/) (aka _"CFN"_) is AWS' _Infrastructure as Code_ ("IaC") solution that allows you to define your resources using templates
+instead of manually provisioning the resources via the Console. Using IaC has many benefits over manual provisioning, including:
 
-- The ability to track changes in your version control system. This allows you to see the changes to the resources over
-  time and understand why changes were made.
-- Allows you to reproduce the same resources across many environments such as test, staging and production. This reduces
-  common issues caused by trying to manually set up multiple environments.
-- Associate infrastructure changes to related code changes in your application.
-- If a "stack" creation or update fails to succeed, CloudFormation will attempt to automatically roll-back the changes
-  to the last successful deployment.
+- The ability to track changes in your version control system
+
+    This allows you to see the changes to the resources over time and understand why changes were made.
+
+- The ability to reproduce the same resources across many environments
+
+    For example: dev, test, staging and production. This reduces
+    common issues caused by trying to manually set up multiple environments.
+
+- Association of infrastructure changes to code changes in your application
+- Rollback of "Stack" creation or updates
+
+    If a "stack" creation or update fails to succeed, CloudFormation will attempt to automatically rollback the changes
+  to the last successful deployment (during an update). Or during creation, will typically delete the aborted Resources.
 
 One of the benefits about CloudFormation is that you can write the templates in either JSON or YAML and they both produce
 the same results. Though I'm not normally a YAML fan, I do prefer the YAML syntax for CFN as I find it easier to read than
@@ -40,23 +47,54 @@ so please reach out on Twitter if you have suggestions.
 We all have our own little tips and tricks for daily development. These are a few of my favorite CFN tricks that I've
 learned over time. If you have more, of course feel free to reach out on Twitter.
 
-- Start small. I always let this one bite me. When creating a new template from scratch, start with minimal resources.
-  If the stack fails to succeed, CFN will automatically roll back your changes (unless you tell it not to). Some services
-  such as RDS or OpenSearch clusters take a _long_ time to provision and you'll waste a lot of time waiting for them to
-  create and then roll back.
-- Come up with a standard file "layout." For me, I always do the following order for the groups: `Parameters, Conditions,
-  Mappings, Outputs, Resources`. Using a consistent format will make it easier for you to navigate your templates across multiple projects.
-- Either group or alphabetize your parameters. I prefer to generally alphabetize my parameters, but of course there are exceptions.
-- Group like resources together. For example, if you are defining a Lambda function, define its IAM role and Log Group
-  directly above where you're defining the Lambda resource.
-- When definiting the properties of resources, I find it easiest to keep them alphabetized like the documentation does.
-  It makes it easier to update and debug over time.
+- Start small
+
+    I always let this one bite me. When creating a new template from scratch, start with minimal resources. Particularly
+    during the initial Stack creation, if it fails, you need to manually delete that Stack before trying again -- which
+    can be an annoying & time consuming task.
+
+    If the stack fails to succeed, CFN will automatically roll back your changes (unless you tell it not to). Some services
+    such as RDS or OpenSearch clusters take a _long_ time to provision and you'll waste a lot of time waiting for them to
+    create and then roll back.
+
+- Come up with a standard file "layout".
+
+    For me, I always do the following order for the groups: `Parameters, Conditions, Mappings, Outputs, Resources`.
+    Using a consistent format will make it easier for you to navigate your templates across multiple projects.
+
+- Either group or alphabetize your Parameters
+
+    I prefer to generally alphabetize my parameters, but of course there are exceptions.
+    
+    Adding
+    [AWS::CloudFormation::Interface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html)
+    can also be a way of helping your consumers/developers better grok the grouping and functionality of Parameters.
+
+- Group like resources together
+
+    For example, if you are defining a Lambda function, define its IAM role and Log Group
+    directly above where you're defining the Lambda resource.
+    
+    **Always** ensure a Lambda Function has a Log Group retention specified to avoid wasting money on log data you will
+    never use again.
+
+- When definiting the properties of resources, alphabetize them like the documentation does
+
+    It makes it easier to update and debug over time.
+
 - If you need to see documentation about a particular resource type, copy the type value, such as `AWS::S3::Bucket`, and
-  paste it into Google. The official CFN docs is usually the first result.
-- Create helper scripts. I do all of my work with CFN Stacks via the AWS CLI. To make this even easier and reduce typing
-  over the lifespan of a project, I create scripts to wrap the `aws cloudformation deploy` command with the appropriate
-  parameters.
-- Keep your template files within your project/Git repository.
+  paste it into Google as the official CFN docs is usually the first result.
+- Create helper scripts
+
+    I do all of my work with CFN Stacks via the AWS CLI. To make this even easier and reduce typing
+    over the lifespan of a project, I create scripts to wrap the `aws cloudformation deploy` command with the appropriate
+    parameters.
+
+- Keep your template files within your project/Git repository
+
+    Bonus points for having a CI/CD setup that makes it easier to track when Stack changes worked, failed, and when
+    changes were executed.
+
 - If you have "shared" templates that you use across multiple projects (even if just for reference), create a Git repository
   so that you can version control them.
 
