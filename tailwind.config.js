@@ -17,7 +17,16 @@ module.exports = {
         'secondary': '#EF7B45',
         'gray-dark': '#1a1a1c',
         'highlight': '#9AE3EA',
-      }
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            'blockquote p': { color: theme('colors.gray.300') },
+            'blockquote p:first-of-type::before': { content: 'none' },
+            'blockquote p:first-of-type::after': { content: 'none' },
+          }
+        }
+      })
     },
   },
   plugins: [
