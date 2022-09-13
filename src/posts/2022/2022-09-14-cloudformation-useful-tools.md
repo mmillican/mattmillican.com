@@ -1,5 +1,6 @@
 ---
 title: 'Useful Tools and Tricks for working with AWS CloudFormation'
+subtitle: The tools and tricks I use to be more productive working with AWS CloudFormation.
 date: '2022-09-14'
 ---
 
