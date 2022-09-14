@@ -4,7 +4,7 @@ subtitle: The tools and tricks I use to be more productive working with AWS Clou
 date: '2022-09-14'
 ---
 
-[CloudFormation](https://aws.amazon.com/cloudformation/) (aka _"CFN"_) is AWS' _Infrastructure as Code_ ("IaC") solution that allows you to define your resources using templates
+[CloudFormation][cfn_home] (aka _"CFN"_) is AWS' _Infrastructure as Code_ ("IaC") solution that allows you to define your resources using templates
 instead of manually provisioning the resources via the Console. Using IaC has many benefits over manual provisioning, including:
 
 - The ability to track changes in your version control system
@@ -57,7 +57,7 @@ learned over time. If you have more, of course feel free to reach out on Twitter
     such as RDS or OpenSearch clusters take a _long_ time to provision and you'll waste a lot of time waiting for them to
     create and then roll back.
 
-- Come up with a standard file "layout".
+- Come up with a standard file "layout"
 
     For me, I always do the following order for the groups: `Parameters, Conditions, Mappings, Outputs, Resources`.
     Using a consistent format will make it easier for you to navigate your templates across multiple projects.
@@ -65,18 +65,17 @@ learned over time. If you have more, of course feel free to reach out on Twitter
 - Either group or alphabetize your Parameters
 
     I prefer to generally alphabetize my parameters, but of course there are exceptions.
-    
+
     Adding
-    [AWS::CloudFormation::Interface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html)
+    [AWS::CloudFormation::Interface][cfninterface]
     can also be a way of helping your consumers/developers better grok the grouping and functionality of Parameters.
 
 - Group like resources together
 
     For example, if you are defining a Lambda function, define its IAM role and Log Group
     directly above where you're defining the Lambda resource.
-    
-    **Always** ensure a Lambda Function has a Log Group retention specified to avoid wasting money on log data you will
-    never use again.
+
+- **Always** ensure resources such as Log Groups have retention policies specified to avoid wasting money on unnecessary log data.
 
 - When definiting the properties of resources, alphabetize them like the documentation does
 
@@ -84,6 +83,7 @@ learned over time. If you have more, of course feel free to reach out on Twitter
 
 - If you need to see documentation about a particular resource type, copy the type value, such as `AWS::S3::Bucket`, and
   paste it into Google as the official CFN docs is usually the first result.
+
 - Create helper scripts
 
     I do all of my work with CFN Stacks via the AWS CLI. To make this even easier and reduce typing
@@ -101,6 +101,8 @@ learned over time. If you have more, of course feel free to reach out on Twitter
 These are just a few of the tools and tricks I use to make creating and managing CFN stacks more enjoyable. I'm sure there
 are many more, so please reach out on [Twitter][twitter] if you have any suggestions or questions.
 
+[cfn_home]: https://aws.amazon.com/cloudformation/
 [cfn_lint]: https://github.com/aws-cloudformation/cfn-lint
 [cfn_nag]: https://github.com/stelligent/cfn_nag
+[cfninterface]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.htm
 [twitter]: https://twitter.com/millicanmatt
