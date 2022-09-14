@@ -1,6 +1,6 @@
 ---
 import "../styles/site.scss";
-import { GoogleAnalytics } from '@astrolib/analytics';
+import GoogleAnalytics from './GoogleAnalytics.astro';
 
 export interface Props {
 	title: string;
@@ -14,7 +14,7 @@ const pageTitle = title ? `${title} - Matt Millican` : 'Matt Millican';
 const pageDescription = description || subTitle || 'Matt Millican, software engineer, cloud enthusiast, geek'
 ---
 
-<GoogleAnalytics id={"UA-26239858-1"} partytown={true} />
+<GoogleAnalytics />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
