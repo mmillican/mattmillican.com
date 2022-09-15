@@ -3,7 +3,7 @@ import Layout from '../../layouts/Default.astro';
 
 let title = 'Projects';
 let description = "Some of the various projects Matt is working on or has built.";
-let subTitle ="Can't stop. Won't Stop. Always a project in the works.";
+let subTitle ="Can't stop. Won't Stop. Always a fun project in the works.";
 let permalink = '/projects';
 let tags = ['About', 'Matt Millican', 'Software Engineer', 'Tinkerer', 'Projects', 'Web Apps']
 
@@ -24,7 +24,7 @@ const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.fr
 <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-4">
   {
     sortedProjects.map(project => (
-      <div class="project md:p-4 md:transition-colors md:duration-300 md:hover:bg-zinc-800 rounded-lg">
+      <div class="project md:p-4 md:transition-colors md:duration-300 md:hover:bg-zinc-800 rounded-3xl">
         <div class="flex items-centered justify-between">
           <h3 class="mt-0">{project.frontmatter.name}</h3>
           <p class="dates">
