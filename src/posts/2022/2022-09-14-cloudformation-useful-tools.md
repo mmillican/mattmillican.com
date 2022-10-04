@@ -39,7 +39,7 @@ so please reach out on Twitter if you have suggestions.
   is great and there are many extensions available for it.
 - [cfn-lint][cfn_lint] is a linter for CFN templates. It will tell you when there are syntax errors with your template,
   such as invalid references or keywords.
-- [cfn_nag](cfn_nag) is similar to cfn-lint, but will also warn you about best practices you may be violating. For example
+- [cfn_nag][cfn_nag] is similar to cfn-lint, but will also warn you about best practices you may be violating. For example
   it will warn you when you try to create an S3 bucket without encryption enabled.
 
 ## Tricks
