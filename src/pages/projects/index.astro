@@ -24,7 +24,7 @@ const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.fr
 <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-4">
   {
     sortedProjects.map(project => (
-      <div class="project md:p-4 md:transition-colors md:duration-300 md:hover:bg-zinc-800 rounded-3xl">
+      <div class="project md:p-4 md:transition-colors md:duration-300 md:hover:bg-zinc-800 border-2 border-zinc-800 rounded-3xl">
         <div class="flex items-centered justify-between">
           <h3 class="mt-0">{project.frontmatter.name}</h3>
           <p class="dates">
