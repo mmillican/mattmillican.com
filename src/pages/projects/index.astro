@@ -11,12 +11,14 @@ interface ProjectMeta {
   displayOrder: number;
   name: string;
   dates?: string;
+  startYear?: number;
+  endYear?: number;
   githubUrl?: string;
   stack: Array<string>;
 }
 
 const projects = await Astro.glob<ProjectMeta>('../../data/projects/*.md');
-const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.frontmatter.displayOrder)
+const sortedProjects = projects.sort((a, b) => b.frontmatter.startYear - a.frontmatter.startYear)
 ---
 
 <Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
@@ -28,7 +30,7 @@ const sortedProjects = projects.sort((a, b) => b.frontmatter.displayOrder - a.fr
         <div class="flex items-centered justify-between">
           <h3 class="mt-0">{project.frontmatter.name}</h3>
           <p class="dates">
-            {project.frontmatter.dates}
+            { `${project.frontmatter.startYear} - ${project.frontmatter.endYear ?? 'present'}`}
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 ---
-displayOrder: 3
 name: Photoman
-dates: "2020 - present"
+startYear: 2020
+endYear: 2022
 githubUrl: ""
 stack: [ ASP.NET 6, Vue.js, AWS Dynamo DB, AWS Lambda, Serverless ]
 ---

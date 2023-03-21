@@ -17,7 +17,7 @@ export default function Header() {
     <header class="py-4 border-b-4 border-secondary">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav class="relative flex justify-between">
-          <a href="/" class="text-primary font-semibold text-3xl hover:no-underline">
+          <a href="/" class="text-primary font-semibold text-3xl no-underline hover:no-underline">
             Matt Millican
           </a>
           <div class="-mr-2 -my-2 md:hidden">

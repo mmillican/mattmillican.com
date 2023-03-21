@@ -1,7 +1,7 @@
 ---
-displayOrder: 2
 name: RailWiki
-dates: "2018 - 2020"
+startYear: 2018
+endYear: 2022
 githubUrl: ""
 stack: [ ASP.NET Core, ASP.NET MVC, Docker, Microsoft SQL Server, AWS ECS ]
 ---

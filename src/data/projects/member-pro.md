@@ -1,7 +1,7 @@
 ---
-displayOrder: 4
 name: MemberPro
-dates: "2020 - 2021"
+startYear: 2020
+endYear: 2021
 githubUrl: ""
 stack: [ ASP.NET 6, Vue.js, Docker, Postgres, AWS ECS ]
 ---

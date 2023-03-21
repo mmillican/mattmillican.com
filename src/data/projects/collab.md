@@ -1,7 +1,7 @@
 ---
-displayOrder: 1
 name: Collab
-dates: "2015 - 2018"
+startYear: 2015
+endYear: 2018
 githubUrl: ""
 stack: [ ASP.NET MVC, Microsoft SQL Server ]
 ---
