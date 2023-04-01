@@ -1,31 +1,39 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
+import { MetaSEO } from '~/types';
 import Header from "../components/Header.jsx";
 import Jumbotron from '../components/Jumbotron.astro';
 import Footer from '../components/Footer.astro';
-// import BlogPostPreview from "../components/BlogPostPreview.astro";
+import MetaTags from '~/components/MetaTags.astro';
+import "../styles/site.scss";
 
 export interface Props {
-  title: string;
-  subTitle?: string;
-  description: string;
-  permalink: string;
-	tags?: string[];
-  canonicalUrl?: string;
+  meta?: MetaSEO,
+  subtitle?: string;
 };
 
-const { title, subTitle, description, permalink } = Astro.props;
+const { meta = {}, subtitle } = Astro.props;
 
 ---
 
 <html lang="en" class="h-full scroll-smooth bg-gray-dark antialiased">
 	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+    <MetaTags {...meta} />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <script defer src="/assets/js/brands.min.js" />
+    <script defer src="/assets/js/fontawesome.min.js" />
+
+    <script defer data-domain="mattmillican.com" src="https://plausible.io/js/script.js"></script>
+
+	</head>
 	<body class="flex h-full flex-col bg-gray-dark">
+
 		<Header client:visible />
-    <Jumbotron title={title} subTitle={subTitle} />
+    <Jumbotron title={meta.title} subTitle={subtitle} />
 
     <main class="prose prose-invert max-w-none mx-auto w-full lg:max-w-4xl xl:max-w-6xl px-4 sm:px-6">
       <slot />

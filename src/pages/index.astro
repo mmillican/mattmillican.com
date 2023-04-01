@@ -1,18 +1,20 @@
 ---
-import Layout from '../layouts/Default.astro';
+import Layout from '~/layouts/Page.astro';
 import RecentPosts from '../components/blog/RecentPosts.astro';
 import FirstPersonBio from '../components/bio/FirstPerson.astro';
 
-let title = '';
-let description = 'Matt Millican; Software Engineer, Cloud Enthusiast, Continuous Learner';
-let permalink = '/';
+const meta = {
+  title: '',
+  description: 'Matt Millican; Software Engineer, Cloud Enthusiast, Continuous Learner',
+  dontUseTitleTemplate: true,
+}
 
 ---
 
-<Layout title={title} subTitle="I like all things dev, cloud and geeky." description={description} permalink={permalink}>
+<Layout {meta} subtitle="I like all things dev, cloud and geeky.">
   <div class="grid grid-cols-12 sm:gap-x-16">
     <div class="col-span-12 sm:col-span-8">
-      <div class="mt-0text-lg leading-loose">
+      <div class="mt-0 text-lg leading-loose">
         <FirstPersonBio />
       </div>
     </div>

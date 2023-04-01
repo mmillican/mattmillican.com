@@ -1,17 +1,16 @@
 ---
-import Layout from '../../layouts/Default.astro';
+import Layout from '~/layouts/Page.astro';
 
-let title = 'Projects';
-let description = "Some of the various projects Matt is working on or has built.";
-let subTitle ="Can't stop. Won't Stop. Always a fun project in the works.";
-let permalink = '/projects';
-let tags = ['About', 'Matt Millican', 'Software Engineer', 'Tinkerer', 'Projects', 'Web Apps']
+const meta = {
+  title: 'Projects',
+  description: 'Some of the various projects I\'m building, or have built.',
+}
 
 interface ProjectMeta {
   displayOrder: number;
   name: string;
   dates?: string;
-  startYear?: number;
+  startYear: number;
   endYear?: number;
   githubUrl?: string;
   stack: Array<string>;
@@ -21,7 +20,7 @@ const projects = await Astro.glob<ProjectMeta>('../../data/projects/*.md');
 const sortedProjects = projects.sort((a, b) => b.frontmatter.startYear - a.frontmatter.startYear)
 ---
 
-<Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
+<Layout {meta} subtitle={meta.description}>
 
 <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-4">
   {

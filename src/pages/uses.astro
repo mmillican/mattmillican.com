@@ -1,14 +1,13 @@
 ---
-import Layout from '../layouts/Default.astro';
+import Layout from '~/layouts/Page.astro';
 
-let title = 'What Does Matt Use?';
-let description = 'The tools I use to get things done';
-let subTitle = 'The tools I use to get things done.'
-let permalink = '/uses';
-let tags = ['Tools', 'Apps', 'Programs', 'Productivity']
+const meta = {
+  title: 'What Does Matt Use?',
+  description: 'The tools I use to get things done',
+}
 ---
 
-<Layout title={title} subTitle={subTitle} description={description} permalink={permalink} tags={tags}>
+<Layout {meta} subtitle={meta.description}>
 
   <h2>Tech Stack</h2>
 

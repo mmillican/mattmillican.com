@@ -1,0 +1,46 @@
+---
+import { AstroSeo } from '@astrolib/seo';
+import { MetaSEO } from '~/types';
+import { getCanonical } from '~/utils/permalinks';
+import { SITE } from '~/config.mjs';
+
+// import { getImage } from '@astrojs/image';
+
+export interface Props extends MetaSEO {
+  dontUseTitleTemplate?: boolean;
+}
+
+const {
+  title = SITE.name,
+  description = '',
+
+  canonical = getCanonical(String(Astro.url.pathname)),
+  noindex = false,
+  nofollow = false,
+
+  ogTitle = title,
+  ogType = 'website',
+
+  dontUseTitleTemplate = false,
+} = Astro.props;
+
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<AstroSeo
+  title={title}
+  titleTemplate={dontUseTitleTemplate ? '%s' : `%s - ${SITE.title}`}
+  description={description}
+  canonical={String(canonical)}
+  noindex={noindex}
+  nofollow={nofollow}
+  openGraph={{
+    url: String(canonical),
+    title: ogTitle,
+    description: description,
+    type: ogType,
+    // TODO: image
+  }}
+/>

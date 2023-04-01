@@ -15,16 +15,21 @@ export async function getStaticPaths() {
 	});
 }
 
-import Layout from '../../layouts/Default.astro';
+import Layout from '~/layouts/BlogPost.astro';
 import { getBlogPosts } from '../../utils/posts';
 
 const { post } = Astro.props;
 
 const { title, subtitle, formattedDate } = post;
 
+const meta = {
+  title,
+  description: subtitle,
+}
+
 ---
 
-<Layout {title} description={subtitle} subTitle={formattedDate}>
+<Layout {meta} subtitle={formattedDate}>
 
   <div class="post-content">
     <Fragment set:html={post.body} />
