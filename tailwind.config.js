@@ -24,6 +24,12 @@ module.exports = {
             'blockquote p': { color: theme('colors.gray.300') },
             'blockquote p:first-of-type::before': { content: 'none' },
             'blockquote p:first-of-type::after': { content: 'none' },
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            }
           }
         }
       })
