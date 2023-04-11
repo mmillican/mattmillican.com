@@ -1,10 +1,11 @@
 ---
+import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/Page.astro';
 import RecentPosts from '../components/blog/RecentPosts.astro';
 import FirstPersonBio from '../components/bio/FirstPerson.astro';
 
 const meta = {
-  title: '',
+  title: SITE.title,
   description: 'Matt Millican; Software Engineer, Cloud Enthusiast, Continuous Learner',
   dontUseTitleTemplate: true,
 }
