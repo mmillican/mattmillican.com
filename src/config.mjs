@@ -5,7 +5,7 @@ const CONFIG = {
   basePathName: '/',
   trailingSlash: true,
 
-  title: 'Matt Millican - Software Engineer',
+  title: 'Matt Millican - Creative Software Engineer',
   description: 'Matt Millican, software engineer, cloud enthusiast, geek',
 
   language: 'en',

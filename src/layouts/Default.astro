@@ -32,7 +32,7 @@ const { meta = {}, subtitle } = Astro.props;
 	<body class="flex h-full flex-col bg-gray-dark">
 
 		<Header client:visible />
-    <Jumbotron title={meta.title} subTitle={subtitle} />
+    <Jumbotron title={meta.headingOverride || meta.title} subTitle={subtitle} />
 
     <main class="prose prose-invert max-w-none mx-auto w-full lg:max-w-4xl xl:max-w-6xl px-4 sm:px-6">
       <slot />
